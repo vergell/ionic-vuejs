@@ -52,7 +52,6 @@
 <script setup lang="ts">
 import {
    IonButtons,
-   IonLabel,
    IonContent,
    IonHeader,
    IonMenuButton,
@@ -63,30 +62,10 @@ import {
 } from "@ionic/vue"
 import { ref } from "vue"
 import {
-   storefrontOutline,
-   storefrontSharp,
-   notificationsOutline,
-   notificationsSharp,
-   homeOutline,
-   homeSharp,
    medalOutline,
    medalSharp,
-   fastFoodOutline,
-   fastFoodSharp,
-   helpCircleOutline,
-   helpCircleSharp,
    chevronForwardOutline,
    chevronForwardSharp,
-   mailOutline,
-   mailSharp,
-   peopleOutline,
-   peopleSharp,
-   heartOutline,
-   heartSharp,
-   locationOutline,
-   locationSharp,
-   timeOutline,
-   timeSharp,
 } from "ionicons/icons"
 
 const user = ref({
