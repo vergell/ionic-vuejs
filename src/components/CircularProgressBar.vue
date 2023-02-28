@@ -8,25 +8,31 @@
             <div class="fill"></div>
          </div>
          <div class="inside-circle">
-            {{ data.userPoints }}/{{ data.totalPoints }}
+            {{ data?.userPoints }}/{{ data?.totalPoints }}
          </div>
       </div>
    </div>
 </template>
 
 <script lang="ts">
+interface Points {
+   userPoints: number
+   totalPoints: number
+}
 export default {
    props: {
-      data: Object as any,
+      data: Object as () => Points,
+      default: () => ({ userPoints: 0, totalPoints: 0 }),
    },
    computed: {
-      degrees() {
+      degrees(this: { data?: Points }): string {
+         if (!this.data) {
+            return ""
+         }
          return (this.data.userPoints / this.data.totalPoints) * 180 + "deg"
       },
    },
 }
-// (((this.data.userPoints - this.data.totalPoints) / (this.data.totalPoints - 0)) * (180 - 0) + 0)
-// (((this.data.userPoints - 0) / (this.data.totalPoints - 0)) * (180 - 0) + 0);
 </script>
 <style media="screen" scoped>
 @import url(http://fonts.googleapis.com/css?family=Roboto:400,700,300);
