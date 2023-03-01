@@ -58,20 +58,18 @@
          <special-offer-slider />
          <category-slider />
 
-         <ion-card style="box-shadow: none !important">
-            <ion-card-header>
-               <ion-card-title> What's New?</ion-card-title>
-            </ion-card-header>
-            <ion-card-content>
-               <img
-                  alt="Silhouette of mountains"
-                  src="https://img.freepik.com/premium-vector/digital-restaurant-menu-horizontal-format_23-2148655475.jpg?w=2000"
-                  style="height: 250px; border-radius: 10px"
-               />
-            </ion-card-content>
-         </ion-card>
          <ion-item lines="none">
-            <h2>Most Popular</h2>
+            <ion-label> What's New?</ion-label>
+         </ion-item>
+         <ion-item>
+            <img
+               alt="Silhouette of mountains"
+               src="https://img.freepik.com/premium-vector/digital-restaurant-menu-horizontal-format_23-2148655475.jpg?w=2000"
+               style="height: 250px; border-radius: 10px"
+         /></ion-item>
+
+         <ion-item lines="none">
+            <ion-label>Most Popular</ion-label>
          </ion-item>
          <div class="most-popular">
             <food-card v-for="food in foodList" :key="food.name" :data="food" />
@@ -86,10 +84,6 @@ import {
    IonHeader,
    IonMenuButton,
    IonPage,
-   IonCard,
-   IonCardHeader,
-   IonCardTitle,
-   IonCardContent,
    IonSearchbar,
    IonLabel,
    IonItem,
@@ -145,21 +139,7 @@ img {
 .most-popular {
    display: grid;
    padding: 10px;
-   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
    gap: 10px;
-}
-.most-popular-item {
-   background-color: #f0f0f0;
-   padding: 20px;
-}
-.most-popular {
-   display: grid;
-   padding: 10px;
-   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-   gap: 10px;
-}
-.most-popular-item {
-   background-color: #f0f0f0;
-   padding: 20px;
 }
 </style>

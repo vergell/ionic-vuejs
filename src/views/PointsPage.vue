@@ -36,7 +36,7 @@
             <CircularProgressBar :data="points" />
          </ion-item>
          <ion-item lines="none">
-            <ion-label><h1>Rewards</h1></ion-label>
+            <ion-label>Rewards</ion-label>
             <ion-item lines="none">
                <ion-label color="secondary">How it works</ion-label>
                <ion-icon

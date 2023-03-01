@@ -82,6 +82,7 @@
             <ion-item lines="none">
                <h3>Add-Ons</h3>
             </ion-item>
+            <add-ons></add-ons>
          </div>
          <div v-if="checkOut" class="modal">
             <div class="card" router-link="/Home">
@@ -104,7 +105,10 @@
          </div>
       </ion-content>
       <ion-footer style="text-align: center" class="ion-no-border">
-         <ion-button @click="checkOut = true" id="open-modal" class="add-to-bag"
+         <ion-button
+            @click=";(checkOut = true), handleSubmit()"
+            id="open-modal"
+            class="add-to-bag"
             >Add to Bag</ion-button
          >
       </ion-footer>
@@ -164,7 +168,8 @@ import {
 import { useRoute } from "vue-router"
 import { Food, fakeFoodApiResponse } from "../api/FoodLists"
 import { ref } from "vue"
-
+import AddOns from "../components/AddOns.vue"
+import OrderAPI from "@/api/Order"
 const categories = ["Regular", "Large", "X-Large"]
 const numberOfOrder = ref(1)
 const selectedIndex = ref(0)
@@ -174,8 +179,14 @@ const food: Food = fakeFoodApiResponse.foods[id]
 const drinks = ["Coke", "Sprite", "Pepsi"]
 const selectedDrink = ref(drinks[0])
 const checkOut = ref(false)
+const newData = { id: 0, value: "new value" }
 const handleDrink = (e: any) => {
    selectedDrink.value = e.detail.value
+}
+const handleSubmit = () => {
+   const api = new OrderAPI()
+   api.updateData(newData)
+   console.log(api.fetchData())
 }
 </script>
 

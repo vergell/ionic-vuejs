@@ -30,8 +30,8 @@ export default {
 </script>
 <style>
 .card {
-   min-width: 200px;
-   min-height: 270px;
+   min-width: 150px;
+   min-height: 260px;
    background-color: #e3e3e3;
    border-radius: 10px;
    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);

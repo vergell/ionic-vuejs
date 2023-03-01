@@ -1,18 +1,15 @@
 <template>
-   <ion-item lines="none">
-      <div style="display: flex; align-items: center">
-         <ion-button
-            fill="solid"
-            color="secondary"
-            @click="Count > 1 && Count--"
-         >
+   <div>
+      <div style="background: none; display: flex; align-items: center">
+         <button class="counter-button" @click="Count > 1 && Count--">
             <ion-icon :ios="chevronBackOutline" :md="chevronBackSharp" />
-         </ion-button>
-         <h4 style="margin: 0 15px">{{ Count }}</h4>
-         <ion-button fill="solid" color="secondary" @click="Count++">
+         </button>
+         <h4 style="margin: 0 10px">{{ Count }}</h4>
+         <button class="counter-button" @click="Count++">
             <ion-icon :ios="chevronForwardOutline" :md="chevronForwardSharp" />
-         </ion-button></div
-   ></ion-item>
+         </button>
+      </div>
+   </div>
 </template>
 <script lang="ts">
 import { defineComponent } from "vue"
@@ -22,11 +19,9 @@ import {
    chevronForwardOutline,
    chevronForwardSharp,
 } from "ionicons/icons"
-import { IonButton, IonItem, IonIcon } from "@ionic/vue"
+import { IonIcon } from "@ionic/vue"
 export default defineComponent({
    components: {
-      IonButton,
-      IonItem,
       IonIcon,
    },
    data() {
@@ -44,3 +39,11 @@ export default defineComponent({
    },
 })
 </script>
+<style>
+.counter-button {
+   padding: 5px;
+   border-radius: 5px;
+   background: darkgrey;
+   align-items: center;
+}
+</style>
