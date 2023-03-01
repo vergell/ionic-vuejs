@@ -10,7 +10,23 @@
       </ion-header>
       <ion-content :fullscreen="true">
          <div id="container">
-            <div></div>
+            <ion-item lines="none">
+               <ion-label>
+                  <h2>{{ userDetails.name }}</h2>
+                  <p>{{ userDetails.mobile }}</p>
+                  <p>{{ userDetails.mail }}</p>
+               </ion-label>
+            </ion-item>
+            <ion-item
+               lines="none"
+               v-for="item in userLocations"
+               :key="item.name"
+            >
+               <ion-label text-wrap>
+                  <h2>{{ item.name }}</h2>
+                  <p>{{ item.address }}</p>
+               </ion-label>
+            </ion-item>
          </div>
       </ion-content>
    </ion-page>
@@ -24,8 +40,11 @@ import {
    IonMenuButton,
    IonPage,
    IonTitle,
+   IonLabel,
    IonToolbar,
 } from "@ionic/vue"
+
+import { userLocations, userDetails } from "../api/User"
 </script>
 
 <style scoped>
