@@ -1,5 +1,5 @@
 <template>
-   <ion-content class="ion-padding">
+   <div class="ion-padding">
       <h1>Main Content</h1>
       <swiper :height="200" :slides-per-view="3" :spaceBetween="10">
          <swiper-slide
@@ -10,12 +10,12 @@
             {{ swiper }}
          </swiper-slide>
       </swiper>
-   </ion-content>
+   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue"
-import { IonApp } from "@ionic/vue"
+
 import { menu, home } from "ionicons/icons"
 import { Swiper, SwiperSlide } from "swiper/vue"
 import "swiper/css"

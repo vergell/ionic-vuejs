@@ -43,7 +43,6 @@
          <div class="food-items">
             <food-card v-for="food in foodList" :key="food.name" :data="food" />
          </div>
-         <ion-button router-link="/Home">go back</ion-button>
       </ion-content>
    </ion-page>
 </template>

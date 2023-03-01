@@ -3,6 +3,7 @@ import { RouteRecordRaw } from "vue-router"
 import HomePageVue from "@/views/HomePage.vue"
 import PointsPageVue from "@/views/PointsPage.vue"
 import OrderPageVue from "@/views/OrderPage.vue"
+import OrderSummaryPageVue from "@/views/OrderSummaryPage.vue"
 const routes: Array<RouteRecordRaw> = [
    // {
    //    path: "/Points",
@@ -20,6 +21,11 @@ const routes: Array<RouteRecordRaw> = [
       path: "/home",
       name: "home",
       component: HomePageVue,
+   },
+   {
+      path: "/OrderSummary",
+      name: "OrderSummaryPage",
+      component: OrderSummaryPageVue,
    },
    {
       path: "/Order",
