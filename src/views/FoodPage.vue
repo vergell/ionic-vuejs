@@ -139,12 +139,7 @@ import {
    IonIcon,
    IonToolbar,
 } from "@ionic/vue"
-import {
-   chevronBackOutline,
-   chevronBackSharp,
-   chevronForwardSharp,
-   chevronForwardOutline,
-} from "ionicons/icons"
+import { chevronBackOutline, chevronBackSharp } from "ionicons/icons"
 import { useRoute } from "vue-router"
 import { Food, fakeFoodApiResponse } from "../api/FoodLists"
 import { ref } from "vue"
