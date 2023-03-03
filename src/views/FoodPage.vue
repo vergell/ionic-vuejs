@@ -49,8 +49,8 @@
                <template v-for="(item, i) in categories" :key="i">
                   <ion-button
                      class="flex-item"
-                     @click="selectedIndex = i"
-                     :fill="selectedIndex === i ? 'solid' : 'clear'"
+                     @click="selectedCategory = i"
+                     :fill="selectedCategory === i ? 'solid' : 'clear'"
                   >
                      {{ item }}
                   </ion-button>
@@ -144,31 +144,40 @@ import { useRoute } from "vue-router"
 import { Food, fakeFoodApiResponse } from "../api/FoodLists"
 import { ref } from "vue"
 import AddOns from "../components/AddOns.vue"
-import OrderAPI from "@/api/Order"
+
 import ItemCounter from "../components/ItemCounter.vue"
 const categories = ["Regular", "Large", "X-Large"]
 const numberOfOrder = ref(1)
-const selectedIndex = ref(0)
+const selectedCategory = ref(0)
 const route = useRoute()
 const id: any = route.params.id
 const food: Food = fakeFoodApiResponse.foods[id]
 const drinks = ["Coke", "Sprite", "Pepsi"]
 const selectedDrink = ref(drinks[0])
 const checkOut = ref(false)
-const newData = { id: 0, value: "new value" }
+const addOnsIsChecked = ref(false)
+const addOnsCount = ref(1)
+const handleSubmit = () => {
+   const newItem = {
+      numberOfOrder: numberOfOrder.value,
+      drink: selectedDrink.value,
+      size: categories[selectedCategory.value],
+      addOns: {
+         ischecked: addOnsIsChecked.value,
+         counts: addOnsCount.value,
+      },
+   }
+   console.log(newItem)
+}
 const handleDrink = (e: any) => {
    selectedDrink.value = e.detail.value
 }
-const handleSubmit = () => {
-   const api = new OrderAPI()
-   api.updateData(newData)
-   console.log(api.fetchData())
-}
+
 const addOnsCounter = (newValue: any) => {
-   console.log(newValue)
+   addOnsCount.value = newValue
 }
 const handleCheckboxValue = (newValue: any) => {
-   console.log(newValue)
+   addOnsIsChecked.value = newValue
 }
 const handleNumberOfOrder = (newValue: any) => {
    numberOfOrder.value = newValue
