@@ -24,30 +24,7 @@
             <p class="ion-padding-start">{{ food.description }}</p>
             <div lines="none" class="price-container">
                <h3 class="price">{{ food.price }}</h3>
-               <ion-item lines="none">
-                  <div style="display: flex; align-items: center">
-                     <ion-button
-                        fill="solid"
-                        color="secondary"
-                        @click="numberOfOrder > 1 && numberOfOrder--"
-                     >
-                        <ion-icon
-                           :ios="chevronBackOutline"
-                           :md="chevronBackSharp"
-                        />
-                     </ion-button>
-                     <h4 style="margin: 0 15px">{{ numberOfOrder }}</h4>
-                     <ion-button
-                        fill="solid"
-                        color="secondary"
-                        @click="numberOfOrder++"
-                     >
-                        <ion-icon
-                           :ios="chevronForwardOutline"
-                           :md="chevronForwardSharp"
-                        />
-                     </ion-button></div
-               ></ion-item>
+               <item-counter @update="handleNumberOfOrder"></item-counter>
             </div>
             <ion-item lines="none">
                <h3>Beverages</h3>
@@ -82,7 +59,10 @@
             <ion-item lines="none">
                <h3>Add-Ons</h3>
             </ion-item>
-            <add-ons></add-ons>
+            <add-ons
+               @update="addOnsCounter"
+               @checkbox-value="handleCheckboxValue"
+            ></add-ons>
          </div>
          <div v-if="checkOut" class="modal">
             <div class="card" router-link="/Home">
@@ -170,6 +150,7 @@ import { Food, fakeFoodApiResponse } from "../api/FoodLists"
 import { ref } from "vue"
 import AddOns from "../components/AddOns.vue"
 import OrderAPI from "@/api/Order"
+import ItemCounter from "../components/ItemCounter.vue"
 const categories = ["Regular", "Large", "X-Large"]
 const numberOfOrder = ref(1)
 const selectedIndex = ref(0)
@@ -187,6 +168,16 @@ const handleSubmit = () => {
    const api = new OrderAPI()
    api.updateData(newData)
    console.log(api.fetchData())
+}
+const addOnsCounter = (newValue: any) => {
+   console.log(newValue)
+}
+const handleCheckboxValue = (newValue: any) => {
+   console.log(newValue)
+}
+const handleNumberOfOrder = (newValue: any) => {
+   numberOfOrder.value = newValue
+   console.log(numberOfOrder.value)
 }
 </script>
 

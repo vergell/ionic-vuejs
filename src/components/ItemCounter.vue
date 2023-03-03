@@ -1,11 +1,11 @@
 <template>
    <div>
       <div style="background: none; display: flex; align-items: center">
-         <button class="counter-button" @click="Count > 1 && Count--">
+         <button class="counter-button" @click="decrement">
             <ion-icon :ios="chevronBackOutline" :md="chevronBackSharp" />
          </button>
-         <h4 style="margin: 0 10px">{{ Count }}</h4>
-         <button class="counter-button" @click="Count++">
+         <h4 style="margin: 0 10px">{{ count }}</h4>
+         <button class="counter-button" @click="increment">
             <ion-icon :ios="chevronForwardOutline" :md="chevronForwardSharp" />
          </button>
       </div>
@@ -26,7 +26,7 @@ export default defineComponent({
    },
    data() {
       return {
-         Count: 1,
+         count: 1,
       }
    },
    setup() {
@@ -36,6 +36,16 @@ export default defineComponent({
          chevronBackOutline,
          chevronForwardOutline,
       }
+   },
+   methods: {
+      increment() {
+         this.count++
+         this.$emit("update", this.count)
+      },
+      decrement() {
+         this.count > 1 && this.count--
+         this.$emit("update", this.count)
+      },
    },
 })
 </script>

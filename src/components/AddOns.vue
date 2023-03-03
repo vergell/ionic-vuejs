@@ -10,14 +10,18 @@
                <h2 class="card-title">Title</h2>
                <p class="card-type">Type</p>
             </div>
-            <input type="checkbox" />
+            <input
+               type="checkbox"
+               v-model="addOns.isChecked"
+               @change="handleCheckbox"
+            />
          </div>
 
          <div class="card-details-add-on card-price-add-on">
             <div>
                <p class="card-price">Price</p>
             </div>
-            <ItemCounter />
+            <ItemCounter @update="setCount" />
          </div>
       </div>
    </div>
@@ -29,6 +33,23 @@ import { defineComponent } from "vue"
 export default defineComponent({
    components: {
       ItemCounter,
+   },
+   data() {
+      return {
+         addOns: {
+            count: 1,
+            isChecked: false,
+         },
+      }
+   },
+   methods: {
+      setCount(newValue: any) {
+         this.addOns.count = newValue
+         this.$emit("update", this.addOns.count)
+      },
+      handleCheckbox() {
+         this.$emit("checkbox-value", this.addOns.isChecked)
+      },
    },
 })
 </script>
