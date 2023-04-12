@@ -71,9 +71,16 @@
                   <h2 class="title">Successfully Added</h2>
                   <p class="type">What do you want to do now?</p>
                   <div style="text-align: center">
-                     <ion-button fill="solid" router-link="/OrderSummary"
-                        >Proceed to Checkout</ion-button
-                     >
+                     <ion-button fill="solid">
+                        <router-link
+                           style="color: white; text-decoration: none"
+                           :to="{
+                              name: 'OrderSummaryPage',
+                           }"
+                        >
+                           Proceed to Checkout
+                        </router-link>
+                     </ion-button>
                   </div>
                   <div style="text-align: center">
                      <ion-button @click="checkOut = false" fill="clear"
@@ -93,35 +100,6 @@
          >
       </ion-footer>
    </ion-page>
-
-   <!-- 
-   <ion-modal style="text-align: center" ref="modal" trigger="open-modal">
-      <ion-content>
-         <ion-item style="text-align: center" lines="none">
-            <img style="width: 150px" :src="food.img_url" />
-         </ion-item>
-         <ion-item lines="none">
-            <ion-label>
-               <h1>Succesfully Added!</h1>
-               <p>What do you want to do now?</p>
-            </ion-label>
-            <p></p>
-         </ion-item>
-         <div style="text-align: center">
-            <ion-button
-               fill="solid"
-               router-link="/OrderSummary"
-               @click="$refs?.modal?.$el?.dismiss()"
-               >Proceed to Checkout</ion-button
-            >
-         </div>
-         <div style="text-align: center">
-            <ion-button fill="clear" @click="$refs?.modal?.$el?.dismiss()"
-               >Close</ion-button
-            >
-         </div>
-      </ion-content>
-   </ion-modal> -->
 </template>
 
 <script setup lang="ts">

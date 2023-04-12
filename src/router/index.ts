@@ -26,6 +26,7 @@ const routes: Array<RouteRecordRaw> = [
       path: "/OrderSummary",
       name: "OrderSummaryPage",
       component: OrderSummaryPageVue,
+      props: true,
    },
    {
       path: "/Order",

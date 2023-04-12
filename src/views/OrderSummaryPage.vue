@@ -31,6 +31,7 @@
                <h2>Orders</h2>
             </ion-item>
             <ion-item lines="none">
+               {{ newItem }}
                <orders-sum />
             </ion-item>
             <ion-item lines="none">
@@ -91,15 +92,12 @@ import {
    IonLabel,
    IonToolbar,
 } from "@ionic/vue"
-import { onMounted, ref } from "vue"
+import { defineProps } from "vue"
 import { userLocations, userDetails } from "../api/User"
 import OrdersSum from "@/components/OrdersSum.vue"
-import OrderAPI from "@/api/Order"
-const order = ref()
-onMounted(() => {
-   const api = new OrderAPI()
-   order.value = api.fetchData()
-   console.log(api.fetchData())
+
+const props = defineProps({
+   newItem: Object, // define the newItem prop
 })
 </script>
 
