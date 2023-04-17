@@ -92,13 +92,13 @@ import {
    IonLabel,
    IonToolbar,
 } from "@ionic/vue"
-import { defineProps } from "vue"
+// import { defineProps } from "vue"
 import { userLocations, userDetails } from "../api/User"
 import OrdersSum from "@/components/OrdersSum.vue"
 
-const props = defineProps({
-   newItem: Object, // define the newItem prop
-})
+// const props = defineProps({
+//    newItem: Object, // define the newItem prop
+// })
 </script>
 
 <style scoped>
